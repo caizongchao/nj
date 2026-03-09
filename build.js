@@ -18,10 +18,8 @@ ninja.target('cc')
     .cx_flag('/w')
     .cx_flag('/Z7', debug ? '' : '/O2', '/MT', '/arch:AVX')
     .cxx_flag('/std:c++20', '/EHsc')
-    .ld_flag('/DEBUG', debug ? '' : '/OPT:REF') //, '/INCREMENTAL:NO')
+    .ld_flag('/DEBUG', debug ? '' : '/OPT:REF')
     .ld_flag('/DYNAMICBASE:NO')
-    // .ld_flag('/IGNORE:4281')
-    // .ld_flag('/SUBSYSTEM:CONSOLE')
     .include_dir(NINJA_DIR + 'src')
 
 ninja.target('ninja')
@@ -34,15 +32,6 @@ ninja.target('ninja')
         'deps/ninja/src/*.cc|browse.cc|*posix.cc|*test.cc|*.in.cc'
     )
     .src('*.cpp')
-    .src('ninja.cli.js')
-
-ninja.target('nj')    
-    .src({
-        input: 'ninja.cli.js',
-        output: 'nj.exe',
-        tool: 'bun build',
-    })
-
 
 ninja.build()
 
