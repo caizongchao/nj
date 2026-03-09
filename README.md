@@ -1,5 +1,5 @@
 nj is a build tool for c/c++ projects. nj is based on ninja build system. Instead of generating ninja build files, it
-execute ninja build dependencies on the fly.
+executes ninja build dependencies on the fly.
 
 Build from source
 -----------------
